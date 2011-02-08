@@ -3,6 +3,7 @@
       package="com.be55.android.ferecauth"
       android:versionCode="1"
       android:versionName="1.0">
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name=".ControlActivity"
                   android:label="@string/app_name">
@@ -11,6 +12,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name="WifiConnectReceiver"></receiver>
 
     </application>
     <uses-sdk android:minSdkVersion="7" />
