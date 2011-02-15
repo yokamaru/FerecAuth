@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/prefs_exec">
+		<CheckBoxPreference android:key="exec_autoauth"
+			android:title="@string/prefs_exec_autoauth_name" android:summary="@string/prefs_exec_autoauth_description"
+			android:defaultValue="true" />
+		<CheckBoxPreference android:key="exec_autolunch"
+			android:title="@string/prefs_exec_autolunch_name" android:summary="@string/prefs_exec_autolunch_description"
+			android:defaultValue="true" />
+		<!--
+		<CheckBoxPreference android:key="exec_keepsession"
+			android:title="@string/prefs_exec_keepsession_name" android:summary="@string/prefs_exec_keepsession_description"
+			android:defaultValue="true" />
+		-->
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/prefs_auth">
+		<PreferenceScreen android:title="@string/prefs_auth_autoconfig_name"
+			android:summary="@string/prefs_auth_autoconfig_description">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.be55.android.ferecauth"
+				android:targetClass="com.be55.android.ferecauth.AutoDetectActivity" />
+		</PreferenceScreen>
+		<EditTextPreference android:key="auth_ssid"
+			android:title="@string/prefs_auth_ssid_name" android:summary="@string/prefs_auth_ssid_description"
+			android:dialogTitle="@string/prefs_auth_ssid_name"
+			android:inputType="text" android:defaultValue="" />
+		<EditTextPreference android:key="auth_username"
+			android:title="@string/prefs_auth_username_name" android:summary="@string/prefs_auth_username_description"
+			android:dialogTitle="@string/prefs_auth_username_name"
+			android:inputType="text" android:defaultValue="" />
+		<EditTextPreference android:key="auth_password"
+			android:title="@string/prefs_auth_password_name" android:summary="@string/prefs_auth_password_description"
+			android:dialogTitle="@string/prefs_auth_password_name"
+			android:inputType="textPassword" android:defaultValue="" />
+		<EditTextPreference android:key="auth_uri"
+			android:title="@string/prefs_auth_uri_name" android:summary="@string/prefs_auth_uri_description"
+			android:dialogTitle="@string/prefs_auth_uri_name"
+			android:defaultValue="http://www.example.com/"
+			android:inputType="textUri" />
+		<EditTextPreference android:key="auth_hidden"
+			android:title="@string/prefs_auth_hidden_name" android:summary="@string/prefs_auth_hidden_description"
+			android:dialogTitle="@string/prefs_auth_hidden_name"
+			android:defaultValue="login=1"
+			android:inputType="text" />
+	</PreferenceCategory>
+</PreferenceScreen>
+
