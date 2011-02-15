@@ -9,8 +9,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -61,8 +63,8 @@ public class StatusActivity extends Activity {
 					this);
 			welcomeDialogBuilder.setCancelable(false).setTitle(
 					getString(R.string.lunch_title)).setMessage(
-					getString(R.string.lunch_message))
-					.setPositiveButton(getString(R.string.lunch_gopref),
+					getString(R.string.lunch_message)).setPositiveButton(
+					getString(R.string.lunch_gopref),
 					new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
@@ -70,8 +72,7 @@ public class StatusActivity extends Activity {
 									ConfigActivity.class);
 							startActivity(intentConfig);
 						}
-					})
-					.setNegativeButton(getString(R.string.lunch_later),
+					}).setNegativeButton(getString(R.string.lunch_later),
 					new DialogInterface.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
@@ -170,11 +171,44 @@ public class StatusActivity extends Activity {
 
 		switch (item.getItemId()) {
 		case MENU_ID_CONFIG:
+			// intent to preference activity
 			Intent intentConfig = new Intent(getBaseContext(),
 					ConfigActivity.class);
 			startActivity(intentConfig);
 			break;
 		case MENU_ID_ABOUT:
+			// show own informations
+			String ownVersionName = "";
+
+			try {
+				ownVersionName = getPackageManager().getPackageInfo(
+						this.getPackageName(), 0).versionName;
+			} catch (NameNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			LayoutInflater aboutDialogInflater = (LayoutInflater) this
+					.getSystemService(LAYOUT_INFLATER_SERVICE);
+			View layout = aboutDialogInflater.inflate(R.layout.about,
+					(ViewGroup) findViewById(R.id.linearLayoutAboutDialogRoot));
+			AlertDialog.Builder aboutDialogBuilder = new AlertDialog.Builder(
+					this);
+			aboutDialogBuilder.setCancelable(true).setView(layout)
+					.setPositiveButton("close",
+							new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.cancel();
+								}
+							});
+			((TextView) layout.findViewById(R.id.textViewVersionName)).setText("Version " + ownVersionName);
+			((TextView) layout.findViewById(R.id.textViewWebSite)).setMovementMethod(LinkMovementMethod.getInstance());
+			((TextView) layout.findViewById(R.id.textViewGithub)).setMovementMethod(LinkMovementMethod.getInstance());
+			
+			AlertDialog aboutDialog = aboutDialogBuilder.create();
+			aboutDialog.show();
 			break;
 		}
 

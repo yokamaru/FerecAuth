@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:padding="10dip"
+	android:id="@+id/linearLayoutAboutDialogRoot">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="horizontal"
+		android:gravity="center">
+		<ImageView android:layout_height="wrap_content" android:src="@drawable/icon"
+			android:layout_width="wrap_content"></ImageView>
+		<TextView android:text="@string/app_name" android:id="@+id/textViewAppName"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_gravity="center" android:textSize="26dp"
+			android:layout_marginLeft="10dip"></TextView>
+	</LinearLayout>
+	<TextView android:id="@+id/textViewVersionName"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="center_horizontal" android:layout_marginTop="10dip"></TextView>
+	<TextView android:text="(C) 2011 YoKamaru"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="center_horizontal" android:layout_marginTop="10dip"></TextView>
+	<TextView android:text="@string/dialog_about_website"
+		android:id="@+id/textViewWebSite" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginTop="10dip"
+		android:gravity="center_horizontal"></TextView>
+	<TextView android:text="@string/dialog_about_github"
+		android:id="@+id/textViewGithub" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginTop="10dip"
+		android:gravity="center_horizontal"></TextView>
+</LinearLayout>

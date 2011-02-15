@@ -51,4 +51,6 @@
     <string name="dialog_autodetect_finish_fail_web_connectivity">ブラウザでのログインを行っていない（ログアウト状態である）ことを確認してください．</string>
     <string name="dialog_autodetect_finish_fail_auth">ユーザ名・パスワードが正しいことを確認してください．．</string>
     <string name="dialog_autodetect_finish_fail_unknown">手動で設定を行なってください．</string>
+    <string name="dialog_about_website"><a href="http://be55.com/software/android/ferecauth">Website</a></string>
+    <string name="dialog_about_github"><a href="http://github.com/yokamaru/">Sourcecode on Github (Pushing soon...)</a></string>
 </resources>
