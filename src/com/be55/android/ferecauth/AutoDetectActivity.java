@@ -3,6 +3,7 @@ package com.be55.android.ferecauth;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +23,8 @@ public class AutoDetectActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.autodetect);
+		
+		
 
 		textViewLog = (TextView) findViewById(R.id.textViewLog);
 
@@ -73,6 +76,9 @@ public class AutoDetectActivity extends Activity {
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						Intent intent = new Intent(getApplicationContext(),
+								ConfigActivity.class);
+						startActivity(intent);
 						finish();
 					}
 				});

@@ -38,12 +38,12 @@ public class ConfigActivity extends PreferenceActivity {
 						return true;
 					}
 				});
-
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+
 		getPreferenceScreen().getSharedPreferences()
 				.registerOnSharedPreferenceChangeListener(listener);
 	}
