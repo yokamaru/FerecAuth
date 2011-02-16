@@ -218,7 +218,15 @@ public class AutoDetectActivity extends Activity {
 
 									if (autoDetectMan.testAuth(userName,
 											password)) {
+										// Save new preferences
 										autoDetectMan.savePrefs();
+										
+										// Restart service
+										Intent authServiceIntent = new Intent(getApplicationContext(),
+												FerecAuthService.class);
+										stopService(authServiceIntent);
+										startService(authServiceIntent);
+										
 										detectHandler
 												.sendEmptyMessage(DETECT_SUCCESS);
 									} else {
