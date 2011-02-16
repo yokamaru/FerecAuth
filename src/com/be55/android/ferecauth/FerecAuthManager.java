@@ -93,7 +93,7 @@ public class FerecAuthManager {
 			String postString = new SimpleDateFormat("yyyyMMddHHmmss")
 					.format(new Date());
 			HttpGet method = new HttpGet(
-					"http://2ndlab.skr.jp/ferecauth/echo.php?s=" + postString);
+					"http://ferecauth.appspot.com/echo?s=" + postString);
 
 			DefaultHttpClient client = new DefaultHttpClient();
 			method.setHeader("Connection", "Keep-Alive");
